@@ -26,6 +26,12 @@ namespace SortTheOddTest
             sortResult(new[] { 1, 3 }, new[] { 3, 1 });
         }
 
+        [TestMethod]
+        public void Input_3_1_Should_Be_3_1()
+        {
+            sortResult(new[] { 3, 1 }, new[] { 3, 1 });
+        }
+
         private static void sortResult(int[] expected, int[] input)
         {
             var kata = new Kata();
