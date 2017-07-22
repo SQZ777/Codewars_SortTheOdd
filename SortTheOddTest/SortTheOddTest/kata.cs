@@ -19,7 +19,11 @@ namespace SortTheOddTest
             sortResult(new[] { 1, 2 }, new[] { 1, 2 });
         }
 
-
+        [TestMethod]
+        public void Input_1_3_Should_Be_3_1()
+        {
+            sortResult(new[] { 1, 3 }, new[] { 3, 1 });
+        }
 
         private static void sortResult(int[] expected, int[] input)
         {
