@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -37,7 +38,10 @@ namespace SortTheOddTest
     {
         public int[] sortTheOdd(int[] input)
         {
-
+            if (input.Count(m => m % 2 == 1) > 1)
+            {
+                Array.Reverse(input);
+            }
             return input;
         }
     }
