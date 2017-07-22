@@ -49,7 +49,7 @@ namespace SortTheOddTest
         [TestMethod]
         public void Input_5_3_1_8_0_Should_Be_1_3_5_8_0()
         {
-            sortResult( new[] { 1, 3, 5, 8, 0 }, new[] { 5, 3, 1, 8, 0 });
+            sortResult(new[] { 1, 3, 5, 8, 0 }, new[] { 5, 3, 1, 8, 0 });
         }
 
         [TestMethod]
@@ -70,31 +70,18 @@ namespace SortTheOddTest
     {
         public int[] sortTheOdd(int[] array)
         {
-            var saveOddNumIndex = new int[array.Count(m => m % 2 == 1)];
-            var saveOddNum = new int[array.Count(m => m % 2 == 1)];
-            var index = 0;
-            if (array.Count(m => m % 2 == 1) > 1)
+            int oddCount = 0;
+            var test = array.Where(x => x % 2 == 1).OrderBy(x => x).ToArray();
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int i = 0; i < array.Length; i++)
+                if (array[i] % 2 == 1)
                 {
-                    if (array[i] % 2 == 1)
-                    {
-                        saveOddNumIndex[index] = i;
-                        saveOddNum[index] = array[i];
-                        index++;
-                    }
+                    array[i] = test[oddCount];
+                    oddCount++;
                 }
-                saveOddNum = saveOddNum.OrderBy(m => m).ToArray();
-                putReversedOddArray(array, saveOddNumIndex, saveOddNum);
             }
             return array;
         }
-        private static void putReversedOddArray(int[] input, int[] saveOddNumIndex, int[] saveOddNum)
-        {
-            for (int i = 0; i < saveOddNumIndex.Length; i++)
-            {
-                input[saveOddNumIndex[i]] = saveOddNum[i];
-            }
-        }
+        
     }
 }
